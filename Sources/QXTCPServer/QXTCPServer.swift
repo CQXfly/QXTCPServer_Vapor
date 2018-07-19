@@ -9,14 +9,15 @@ import Foundation
 
 import NIO
 
+public typealias OnRead = (_ socket: Channel,_ data: NIOAny)-> Void
 public class TCPServer {
-    typealias OnRead = (_ socket: Channel,_ data: NIOAny)-> Void
+    
     let host: String
     let port: Int
     let eventLoop: EventLoop
-    var onRead : OnRead?
-    var onWrite : OnRead?
-    var onError : (Error) -> Void = { print($0) }
+    public var onRead : OnRead?
+    public var onWrite : OnRead?
+    public var onError : (Error) -> Void = { print($0) }
     
     private let tcpThread = dispatch_queue_concurrent_t(label: "tcp");
     
