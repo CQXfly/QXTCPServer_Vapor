@@ -1,6 +1,7 @@
 import XCTest
-@testable import QXTCPServer_VaporTests
 
-XCTMain([
-    testCase(QXTCPServer_VaporTests.allTests),
-])
+import QXTCPServerTests
+
+var tests = [XCTestCaseEntry]()
+tests += QXTCPServerTests.allTests()
+XCTMain(tests)

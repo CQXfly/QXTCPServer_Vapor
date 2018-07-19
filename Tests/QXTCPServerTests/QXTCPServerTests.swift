@@ -1,12 +1,12 @@
 import XCTest
-@testable import QXTCPServer_Vapor
+@testable import QXTCPServer
 
-class QXTCPServer_VaporTests: XCTestCase {
+final class QXTCPServerTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(QXTCPServer_Vapor().text, "Hello, World!")
+        XCTAssertEqual(QXTCPServer().text, "Hello, World!")
     }
 
 

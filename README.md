@@ -1,4 +1,3 @@
-# QXTCPServer-Vapor
+# QXTCPServer
 
 A description of this package.
-# QXTCPServer_Vapor
