@@ -8,7 +8,7 @@
 import Foundation
 
 import NIO
-
+import NIOOpenSSL
 public typealias OnRead = (_ socket: Channel,_ data: NIOAny)-> Void
 public class TCPServer {
     
@@ -18,6 +18,15 @@ public class TCPServer {
     public var onRead : OnRead?
     public var onWrite : OnRead?
     public var onError : (Error) -> Void = { print($0) }
+   
+    // add ssl
+//    let sslContext = try! SSLContext(configuration: TLSConfiguration.forServer(certificateChain: [.file("cert.pem")], privateKey: .file("key.pem")))
+    
+//        .childChannelInitializer { channel in
+//            return channel.pipeline.add(handler: try! OpenSSLServerHandler(context: sslContext)).then {
+//                channel.pipeline.add(handler: EchoHandler())
+//            }
+//    }
     
     private let tcpThread = dispatch_queue_concurrent_t(label: "tcp");
     
@@ -76,6 +85,7 @@ public class TCPServer {
         self.host = host
         self.port = port
         self.eventLoop = eventLoop
+        
         
         
     }
